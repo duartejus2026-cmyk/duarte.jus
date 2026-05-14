@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Stethoscope, Landmark, Briefcase, ArrowRight, X, Calendar, AlertCircle, FileText } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
