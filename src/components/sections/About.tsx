@@ -5,9 +5,9 @@ import { supabase } from "../../services/supabase";
 
 export default function About() {
   const [content, setContent] = useState({
-    title: "Trazendo Valor Real para seus Direitos e Orientação Jurídica Experiente",
-    description: "Somos um dos principais escritórios de advocacia boutique do país...",
-    image_url: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
+    title: "Expertise Jurídica e Compromisso com seu Direito",
+    description: "O Duarte Advocatus atua com excelência jurídica, atendimento humanizado e estratégias personalizadas para defender os direitos de cada cliente com transparência e comprometimento. Nossa equipe trabalha de forma próxima, entendendo cada caso de maneira única e buscando sempre as melhores soluções jurídicas.\n\nAcreditamos que a advocacia vai além dos processos: ela deve oferecer confiança, orientação clara e apoio em momentos importantes da vida. Seja em questões trabalhistas, previdenciárias, cíveis ou empresariais, estamos preparados para entregar um atendimento sério, ágil e eficiente.",
+    image_url: ""
   });
 
   useEffect(() => {

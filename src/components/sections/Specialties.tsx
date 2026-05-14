@@ -14,8 +14,30 @@ interface SpecialtiesProps {
 
 export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
   const [selectedSpecialty, setSelectedSpecialty] = useState<Specialty | null>(null);
+  const [specialties, setSpecialties] = useState<any>(null);
 
-  const specialtiesDetails = {
+  useEffect(() => {
+    async function fetchSpecialties() {
+      const { data } = await supabase.from('site_specialties').select('*');
+      if (data && data.length > 0) {
+        const formatted = data.reduce((acc: any, item: any) => {
+          acc[item.slug.toUpperCase()] = {
+            title: item.title,
+            icon: item.slug === 'medico' ? Stethoscope : item.slug === 'bancario' ? Landmark : Briefcase,
+            brief: item.brief,
+            fullDescription: item.full_description,
+            highlights: item.highlights || [],
+            attorneys: item.attorneys
+          };
+          return acc;
+        }, {});
+        setSpecialties(formatted);
+      }
+    }
+    fetchSpecialties();
+  }, []);
+
+  const specialtiesDetails = specialties || {
     [Specialty.MEDICO]: {
       title: "Direito Médico & Saúde",
       icon: Stethoscope,

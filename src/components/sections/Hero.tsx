@@ -10,8 +10,8 @@ interface HeroProps {
 
 export default function Hero({ onOpenBooking, onExploreAreas }: HeroProps) {
   const [content, setContent] = useState({
-    title: "Soluções Jurídicas de Alta Performance",
-    description: "Protegemos seus direitos com estratégia e precisão. Especialistas em Direito Médico, Bancário e Trabalhista, focados em resultados que transformam realidades.",
+    title: "Excelência Jurídica com Estratégia e Resultado",
+    description: "Protegemos seus interesses com atendimento personalizado, atuação técnica e soluções jurídicas de alta performance.",
     image_url: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop"
   });
 
