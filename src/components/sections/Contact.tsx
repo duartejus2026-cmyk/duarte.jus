@@ -63,7 +63,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-serif text-lg font-bold text-primary">Telefone & WhatsApp</h4>
-                  <p className="text-text-muted font-sans">+55 (61) 99999-9999</p>
+                  <p className="text-text-muted font-sans">(61) 99288-0223</p>
                   <button className="text-gold text-xs font-bold uppercase tracking-widest mt-2 hover:underline">Iniciar Conversa</button>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-serif text-lg font-bold text-primary">E-mail Corporativo</h4>
-                  <p className="text-text-muted font-sans">contato@duarteadvocatus.com.br</p>
+                  <p className="text-text-muted font-sans">israelduarte.adv@outlook.com</p>
                 </div>
               </div>
 

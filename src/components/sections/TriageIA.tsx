@@ -152,7 +152,7 @@ export default function TriageIA() {
                   <div className="pt-4 flex flex-col gap-3">
                     <Button variant="gold" fullWidth onClick={() => {
                       const msg = `Olá, fiz uma triagem no site Duarte Advocatus e gostaria de atendimento.\n\n*Especialidade indicada:* ${result.specialtyRecommended}\n*Resumo do caso:* ${description.substring(0, 300)}...`;
-                      window.open(`https://wa.me/5561999999999?text=${encodeURIComponent(msg)}`, '_blank');
+                      window.open(`https://wa.me/5561992880223?text=${encodeURIComponent(msg)}`, '_blank');
                     }}>Falar com Especialista no WhatsApp</Button>
                     <button onClick={reset} className="text-xs uppercase font-bold text-text-muted hover:text-primary transition-colors py-2">Realizar Nova Triagem</button>
                   </div>
