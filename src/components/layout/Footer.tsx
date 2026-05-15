@@ -63,8 +63,9 @@ export default function Footer() {
         </div>
 
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[10px] uppercase tracking-widest text-white/30 font-medium text-center md:text-left">
-            © 2026 Duarte Advocatus.
+          <p className="text-[10px] uppercase tracking-widest text-white/30 font-medium text-center md:text-left flex items-center gap-4">
+            <span>© 2026 Duarte Advocatus.</span>
+            <a href="/login" className="hover:text-gold transition-colors opacity-50 hover:opacity-100">Acesso Restrito</a>
           </p>
           <button 
             onClick={scrollToTop}
