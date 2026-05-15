@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Input from "../ui/Input";
 import TextArea from "../ui/TextArea";
 import Button from "../ui/Button";
@@ -94,13 +94,15 @@ export default function Contact() {
                   label="Nome Completo" 
                   placeholder="Seu nome"
                   required
+                  disabled={isSubmitting || submitStatus === "success"}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
                 <Input 
                   label="WhatsApp" 
-                  placeholder="(00) 00000-0000"
+                  placeholder="(61) 99288-0223"
                   required
+                  disabled={isSubmitting || submitStatus === "success"}
                   value={formData.whatsapp}
                   onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
                 />
@@ -109,7 +111,8 @@ export default function Contact() {
               <div className="space-y-2">
                 <label className="text-[10px] uppercase font-bold tracking-widest text-primary ml-1">Assunto / Especialidade</label>
                 <select 
-                  className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-gold transition-colors font-sans appearance-none text-text-dark"
+                  className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-gold transition-colors font-sans appearance-none text-text-dark disabled:opacity-50"
+                  disabled={isSubmitting || submitStatus === "success"}
                   value={formData.specialty}
                   onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}
                 >
@@ -125,23 +128,53 @@ export default function Contact() {
                 rows={4}
                 placeholder="Descreva brevemente sua necessidade..."
                 required
+                disabled={isSubmitting || submitStatus === "success"}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               />
 
-              <Button 
-                variant="primary" 
-                fullWidth 
-                type="submit" 
-                disabled={isSubmitting}
-                icon={Send}
-              >
-                {isSubmitting ? "Enviando..." : "Enviar Solicitação"}
-              </Button>
+              <AnimatePresence mode="wait">
+                {submitStatus === "success" ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="space-y-4"
+                  >
+                    <div className="p-6 bg-gold/10 border border-gold/20 rounded-xl text-center">
+                      <p className="text-primary font-serif text-lg font-medium mb-2">Solicitação enviada com sucesso!</p>
+                      <p className="text-sm text-text-muted">Nossa equipe jurídica já recebeu suas informações e um especialista entrará em contato em breve.</p>
+                    </div>
+                    <Button 
+                      variant="gold" 
+                      fullWidth 
+                      onClick={() => {
+                        const msg = `Olá! Acabei de enviar meus dados pelo site e gostaria de agilizar o atendimento.\n\n*Assunto:* ${formData.specialty}`;
+                        window.open(`https://wa.me/5561992880223?text=${encodeURIComponent(msg)}`, '_blank');
+                      }}
+                    >
+                      Falar agora no WhatsApp
+                    </Button>
+                    <button 
+                      type="button"
+                      onClick={() => setSubmitStatus("idle")}
+                      className="w-full text-[10px] uppercase font-bold text-text-muted hover:text-primary tracking-widest"
+                    >
+                      Enviar outra mensagem
+                    </button>
+                  </motion.div>
+                ) : (
+                  <Button 
+                    variant="primary" 
+                    fullWidth 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    icon={Send}
+                  >
+                    {isSubmitting ? "Enviando..." : "Enviar Solicitação"}
+                  </Button>
+                )}
+              </AnimatePresence>
               
-              {submitStatus === "success" && (
-                <p className="text-sm text-green-600 font-medium text-center">Mensagem enviada com sucesso! Entraremos em contato em breve.</p>
-              )}
               {submitStatus === "error" && (
                 <p className="text-sm text-red-600 font-medium text-center">Ocorreu um erro ao enviar. Por favor, tente novamente.</p>
               )}

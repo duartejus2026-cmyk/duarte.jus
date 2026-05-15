@@ -5,6 +5,8 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
+import { notifyNewLead } from './notificationService';
+
 export async function saveLead(leadData: {
   name: string;
   whatsapp: string;
@@ -19,6 +21,7 @@ export async function saveLead(leadData: {
         whatsapp: leadData.whatsapp, 
         specialty: leadData.specialty, 
         message: leadData.message,
+        status: 'novo',
         created_at: new Date().toISOString()
       },
     ]);
@@ -27,6 +30,9 @@ export async function saveLead(leadData: {
     console.error('Error saving lead:', error);
     throw error;
   }
+
+  // Disparar notificações em segundo plano
+  notifyNewLead(leadData).catch(err => console.error("Falha na notificação:", err));
 
   return data;
 }
