@@ -78,15 +78,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-5 group">
-                <div className="w-12 h-12 bg-surface-bright rounded-xl flex items-center justify-center text-gold group-hover:bg-primary group-hover:text-gold-light transition-all duration-300">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-serif text-lg font-bold text-primary">Endereço</h4>
-                  <p className="text-text-muted font-sans">Setor de Autarquias Sul, Quadra 04, Bloco A<br />Edifício Victória, Sala 801 - Brasília/DF</p>
-                </div>
-              </div>
             </div>
           </motion.div>
 

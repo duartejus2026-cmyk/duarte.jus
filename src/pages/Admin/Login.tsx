@@ -12,23 +12,16 @@ export default function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const [isRegistering, setIsRegistering] = useState(false);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
 
-    const { error } = isRegistering 
-      ? await supabase.auth.signUp({ email, password })
-      : await supabase.auth.signInWithPassword({ email, password });
-
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+  
     if (error) {
-      setError(error.message === "User already registered" ? "E-mail já cadastrado. Tente fazer login." : "Erro na autenticação. Verifique os dados.");
-      setLoading(false);
-    } else if (isRegistering) {
-      setError("Conta criada! Agora você pode entrar.");
-      setIsRegistering(false);
+      setError("Erro na autenticação. Verifique os dados.");
       setLoading(false);
     } else {
       navigate("/admin");
@@ -79,16 +72,8 @@ export default function Login() {
               disabled={loading}
               icon={Lock}
             >
-              {loading ? "Processando..." : (isRegistering ? "Criar Minha Conta" : "Entrar no Painel")}
+              {loading ? "Processando..." : "Entrar no Painel"}
             </Button>
-
-            <button 
-              type="button"
-              onClick={() => setIsRegistering(!isRegistering)}
-              className="w-full text-center text-xs font-bold text-gold uppercase tracking-widest hover:underline"
-            >
-              {isRegistering ? "Já tenho conta? Entrar" : "Não tem conta? Cadastrar-se"}
-            </button>
           </div>
 
           <p className="text-[10px] text-text-muted text-center uppercase tracking-widest font-medium">
