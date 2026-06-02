@@ -157,27 +157,6 @@ export default function Dashboard() {
               </Link>
             );
           })}
-
-          {/* Melhorias Futuras */}
-          <div className="pt-4 mt-4 border-t border-white/10">
-            <p className="text-[8px] uppercase tracking-[0.2em] text-white/20 px-4 mb-2 font-bold">Em Desenvolvimento</p>
-            {[
-              { label: "Especialidades", icon: LayoutPanelTop },
-              { label: "Depoimentos", icon: Users },
-              { label: "Config. IA", icon: FileText },
-            ].map((item) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.label}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-[10px] font-bold uppercase tracking-widest text-white/20 cursor-not-allowed select-none"
-                >
-                  <Icon className="w-4 h-4 flex-shrink-0" />
-                  {item.label}
-                </div>
-              );
-            })}
-          </div>
         </nav>
 
         <div className="p-4 border-t border-white/10 text-center">

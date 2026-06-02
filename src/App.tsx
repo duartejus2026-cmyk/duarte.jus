@@ -17,7 +17,7 @@ export default function App() {
 
   useEffect(() => {
     // Simular carregamento inicial dos assets premium
-    const timer = setTimeout(() => setLoading(false), 2000);
+    const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 

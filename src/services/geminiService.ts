@@ -29,7 +29,7 @@ export async function performLegalTriage(description: string): Promise<TriageRes
       body: { description },
       headers: {
         "Authorization": `Bearer ${anonKey}`,
-        "X-Client-Info": "duarte-advocatus-web"
+        "X-Client-Info": "duarte-advogados-web"
       }
     });
 
