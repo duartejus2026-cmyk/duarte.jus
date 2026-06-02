@@ -6,6 +6,7 @@ export enum Specialty {
   MEDICO = "Direito Médico",
   BANCARIO = "Direito Bancário",
   TRABALHISTA = "Direito Trabalhista",
+  IMOBILIARIO = "Direito Imobiliário",
 }
 
 export interface Attorney {

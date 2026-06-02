@@ -94,6 +94,7 @@ export default function Contact() {
                   label="Nome Completo" 
                   placeholder="Seu nome"
                   required
+                  maxLength={100}
                   disabled={isSubmitting || submitStatus === "success"}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -102,6 +103,7 @@ export default function Contact() {
                   label="WhatsApp" 
                   placeholder="(61) 99288-0223"
                   required
+                  maxLength={20}
                   disabled={isSubmitting || submitStatus === "success"}
                   value={formData.whatsapp}
                   onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
@@ -128,6 +130,7 @@ export default function Contact() {
                 rows={4}
                 placeholder="Descreva brevemente sua necessidade..."
                 required
+                maxLength={1000}
                 disabled={isSubmitting || submitStatus === "success"}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}

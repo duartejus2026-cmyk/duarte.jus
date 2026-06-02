@@ -29,19 +29,21 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking }: Heade
         
         {/* Brand Name */}
         <div 
-          className="flex items-center gap-3 cursor-pointer select-none"
+          className="flex items-center gap-3 sm:gap-4 cursor-pointer select-none py-1"
           onClick={() => handleTabChange("home")}
           id="header-brand"
         >
-          <div className="w-10 h-10 rounded-lg bg-primary hover:bg-primary-light flex items-center justify-center text-gold transition-colors duration-300 shadow-md">
-            <Scale className="w-5 h-5 text-gold-light" />
-          </div>
-          <div>
-            <span className="font-serif font-bold text-xl sm:text-2xl tracking-tight text-primary block">
-              Silva &amp; Associados
+          <img 
+            src="/logo.png" 
+            alt="Duarte Advocatus Logo" 
+            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain drop-shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+          <div className="flex flex-col justify-center">
+            <span className="font-serif font-bold text-xl sm:text-2xl md:text-3xl tracking-tight text-primary block leading-none mb-1">
+              Duarte Advocatus
             </span>
-            <span className="text-[10px] tracking-widest font-sans uppercase font-semibold text-gold leading-none block">
-              Advocacia de Alta Performance
+            <span className="text-[9px] sm:text-[10px] md:text-[11px] tracking-[0.15em] sm:tracking-[0.2em] font-sans uppercase font-bold text-[#b48d3d] leading-none block">
+              Excelência e Estratégia Jurídica
             </span>
           </div>
         </div>

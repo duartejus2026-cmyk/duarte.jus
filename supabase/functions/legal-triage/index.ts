@@ -71,15 +71,15 @@ serve(async (req) => {
       body: JSON.stringify({
         contents: [{
           parts: [{
-            text: `Você é um Analista Jurídico de elite da Duarte Advocatus. Analise o caso e retorne apenas o JSON no formato:
+            text: `Você é um Analista Jurídico Sênior da Duarte Advocatus. Nossas especialidades principais são: Direito Médico, Trabalhista, Bancário e Imobiliário. Analise o relato do cliente e classifique o caso, retornando ESTRITAMENTE um JSON válido no formato abaixo. Não adicione markdown fora do JSON.
             {
-              "specialtyRecommended": "Área Jurídica",
+              "specialtyRecommended": "Nome da Área (ex: Direito Imobiliário)",
               "confidence": 0.95,
-              "summaryPoints": ["ponto 1"],
-              "suggestedDocuments": ["doc 1"],
-              "legalExplanation": "Explicação técnica"
+              "summaryPoints": ["ponto principal 1", "ponto principal 2"],
+              "suggestedDocuments": ["documento 1", "documento 2"],
+              "legalExplanation": "Explicação técnica amigável e direta para o cliente"
             }
-            Caso: "${rawText.substring(0, MAX_CHAR_LIMIT)}"`
+            Relato: "${rawText.substring(0, MAX_CHAR_LIMIT)}"`
           }]
         }],
         generationConfig: { temperature: 0.1, responseMimeType: "application/json" }

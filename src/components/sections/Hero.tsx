@@ -10,8 +10,8 @@ interface HeroProps {
 
 export default function Hero({ onOpenBooking, onExploreAreas }: HeroProps) {
   const [content, setContent] = useState({
-    title: "Excelência Jurídica com Estratégia e Resultado",
-    description: "Protegemos seus interesses com atendimento personalizado, atuação técnica e soluções jurídicas de alta performance.",
+    title: "Segurança e qualidade para sua família e patrimônio",
+    description: "Atuação jurídica de alta performance. Protegemos seus interesses com rigor técnico, atendimento personalizado e estratégias resolutivas.",
     image_url: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop"
   });
 

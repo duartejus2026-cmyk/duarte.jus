@@ -80,11 +80,12 @@ export default function SiteSettings() {
             />
             
             <div className="space-y-2">
-              <label className="text-xs font-bold text-primary uppercase tracking-widest">A História do Escritório / Missão</label>
+              <label className="text-xs font-bold text-primary uppercase tracking-widest">Subtítulo / Descrição Curta</label>
               <textarea 
-                className="w-full bg-slate-50 border border-slate-100 rounded-lg p-4 text-sm focus:outline-none focus:border-gold min-h-[300px] leading-relaxed font-sans"
+                className="w-full bg-slate-50 border border-slate-100 rounded-lg p-4 text-sm focus:outline-none focus:border-gold min-h-[100px] leading-relaxed font-sans"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                placeholder="Ex: Atuação jurídica de alta performance, defendendo seus interesses..."
               />
             </div>
 

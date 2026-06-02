@@ -32,35 +32,22 @@ export async function notifyNewLead(lead: { name: string; whatsapp: string; spec
     }
   }
 
-  // 2. Notificação via E-mail (Resend)
-  if (RESEND_API_KEY) {
-    try {
-      await fetch('https://api.resend.com/emails', {
+  // 2. Notificação via E-mail (Supabase Edge Function via Resend)
+  try {
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+    
+    if (supabaseUrl && supabaseAnonKey) {
+      await fetch(`${supabaseUrl}/functions/v1/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${RESEND_API_KEY}`
+          'Authorization': `Bearer ${supabaseAnonKey}`
         },
-        body: JSON.stringify({
-          from: 'Duarte Advocatus <contato@resend.dev>', // Em produção usar domínio próprio
-          to: [OFFICE_EMAIL],
-          subject: `🚨 Novo Lead: ${lead.name} - ${lead.specialty}`,
-          html: `
-            <div style="font-family: sans-serif; color: #1a1a1a;">
-              <h2 style="color: #c5a059;">Novo Lead Recebido</h2>
-              <p><strong>Nome:</strong> ${lead.name}</p>
-              <p><strong>WhatsApp:</strong> ${lead.whatsapp}</p>
-              <p><strong>Especialidade:</strong> ${lead.specialty}</p>
-              <p><strong>Data/Hora:</strong> ${new Date().toLocaleString('pt-BR')}</p>
-              <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-              <p><strong>Mensagem:</strong></p>
-              <p>${lead.message}</p>
-            </div>
-          `
-        })
+        body: JSON.stringify({ record: lead })
       });
-    } catch (error) {
-      console.error("Erro ao enviar e-mail:", error);
     }
+  } catch (error) {
+    console.error("Erro ao invocar Edge Function de e-mail:", error);
   }
 }

@@ -25,7 +25,7 @@ export default function Input({ label, prefix, suffix, ...props }: InputProps) {
           </span>
         )}
         <input 
-          className={`w-full bg-white border border-slate-200 rounded-lg py-3 focus:outline-none focus:border-gold transition-colors font-sans text-text-dark placeholder:text-slate-400 ${prefix ? 'pl-11 pr-4' : 'px-4'} ${suffix ? 'pr-20' : ''}`}
+          className={`w-full bg-white border border-slate-200 rounded-lg py-3 min-h-[48px] focus:outline-none focus:border-gold transition-colors font-sans text-text-dark placeholder:text-slate-400 ${prefix ? 'pl-11 pr-4' : 'px-4'} ${suffix ? 'pr-20' : ''}`}
           onFocus={handleFocus}
           inputMode={props.type === "number" ? "decimal" : undefined}
           {...props}

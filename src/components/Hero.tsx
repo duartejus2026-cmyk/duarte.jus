@@ -18,7 +18,7 @@ export default function Hero({ onOpenBooking, onExploreAreas, onOpenCalculators 
       <div className="absolute inset-0 z-0">
         <img
           src={statueImg}
-          alt="Estátua da Justiça em Brasília - Silva &amp; Associados"
+          alt="Estátua da Justiça em Brasília - Duarte Advocatus"
           className="w-full h-full object-cover object-center select-none scale-105 pointer-events-none transition-transform duration-[10000ms] hover:scale-100"
           referrerPolicy="no-referrer"
         />

@@ -17,8 +17,15 @@ export default function TriageIA() {
       const data = await performLegalTriage(description);
       setResult(data);
     } catch (error) {
-      console.error(error);
-      alert("Houve um erro na análise. Tente novamente em instantes.");
+      console.error("Erro na triagem:", error);
+      // Fallback gracioso em caso de erro na IA
+      setResult({
+        specialtyRecommended: "Atendimento Personalizado",
+        confidence: 1,
+        summaryPoints: ["Análise manual necessária"],
+        suggestedDocuments: ["Documentos relativos ao seu caso"],
+        legalExplanation: "Nossa inteligência artificial encontrou uma instabilidade momentânea ou o caso requer análise mais detalhada. Por favor, fale diretamente com um especialista via WhatsApp para um atendimento imediato."
+      });
     } finally {
       setIsLoading(false);
     }

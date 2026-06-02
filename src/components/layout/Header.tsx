@@ -40,18 +40,20 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking }: Heade
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-2 sm:gap-3 cursor-pointer select-none"
+          className="flex items-center gap-3 sm:gap-4 cursor-pointer select-none py-1"
           onClick={() => handleTabChange("home")}
           id="header-brand"
         >
-          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary flex items-center justify-center text-gold transition-transform hover:scale-105 duration-300 shadow-md">
-            <Scale className="w-4 h-4 sm:w-5 sm:h-5 text-gold-light" />
-          </div>
-          <div>
-            <span className="font-serif font-bold text-lg sm:text-2xl tracking-tight text-primary block">
+          <img 
+            src="/logo.png" 
+            alt="Duarte Advocatus Logo" 
+            className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
+          />
+          <div className="flex flex-col justify-center">
+            <span className="font-serif font-bold text-xl sm:text-2xl md:text-3xl tracking-tight text-primary block leading-none mb-1">
               Duarte Advocatus
             </span>
-            <span className="text-[8px] sm:text-[10px] tracking-widest font-sans uppercase font-semibold text-gold leading-none block">
+            <span className="text-[9px] sm:text-[10px] md:text-[11px] tracking-[0.15em] sm:tracking-[0.2em] font-sans uppercase font-bold text-[#b48d3d] leading-none block">
               Excelência e Estratégia Jurídica
             </span>
           </div>

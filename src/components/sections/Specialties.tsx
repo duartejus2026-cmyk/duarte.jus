@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Stethoscope, Landmark, Briefcase, ArrowRight, X, Calendar, AlertCircle, FileText } from "lucide-react";
+import { Stethoscope, Landmark, Briefcase, ArrowRight, X, Calendar, AlertCircle, FileText, Building } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 enum Specialty {
   MEDICO = "Médico",
   BANCARIO = "Bancário",
-  TRABALHISTA = "Trabalhista"
+  TRABALHISTA = "Trabalhista",
+  IMOBILIARIO = "Imobiliário"
 }
 
 interface SpecialtiesProps {
@@ -23,7 +24,8 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
         const formatted = data.reduce((acc: any, item: any) => {
           acc[item.slug.toUpperCase()] = {
             title: item.title,
-            icon: item.slug === 'medico' ? Stethoscope : item.slug === 'bancario' ? Landmark : Briefcase,
+            image: item.slug === 'medico' ? '/images/specialties/medical.png' : item.slug === 'bancario' ? '/images/specialties/banking.png' : item.slug === 'imobiliario' ? '/images/specialties/real_estate.png' : '/images/specialties/labor.png',
+            icon: item.slug === 'medico' ? Stethoscope : item.slug === 'bancario' ? Landmark : item.slug === 'imobiliario' ? Building : Briefcase,
             brief: item.brief,
             fullDescription: item.full_description,
             highlights: item.highlights || [],
@@ -40,6 +42,7 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
   const specialtiesDetails = specialties || {
     [Specialty.MEDICO]: {
       title: "Direito Médico & Saúde",
+      image: "/images/specialties/medical.png",
       icon: Stethoscope,
       brief: "Defesa robusta em casos de erro médico e negativa de cobertura por planos de saúde.",
       fullDescription: "Atuamos na vanguarda da defesa do paciente. De erros cirúrgicos a negativas abusivas de tratamento, nossa equipe combina rigor jurídico com sensibilidade humana para garantir que sua saúde e seus direitos sejam preservados.",
@@ -53,6 +56,7 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
     },
     [Specialty.BANCARIO]: {
       title: "Direito Bancário Estratégico",
+      image: "/images/specialties/banking.png",
       icon: Landmark,
       brief: "Revisão de contratos, combate a juros abusivos e proteção contra execuções.",
       fullDescription: "Protegemos seu patrimônio contra as práticas abusivas das instituições financeiras. Nossa análise técnica identifica irregularidades em contratos de financiamento, empréstimos e execuções fiscais, buscando sempre o equilíbrio contratual.",
@@ -66,6 +70,7 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
     },
     [Specialty.TRABALHISTA]: {
       title: "Direito Trabalhista de Elite",
+      image: "/images/specialties/labor.png",
       icon: Briefcase,
       brief: "Representação de alta complexidade para executivos e profissionais liberais.",
       fullDescription: "Focamos em litígios trabalhistas que exigem análise profunda. De rescisões de altos cargos a casos de assédio moral corporativo, defendemos a dignidade do trabalho com estratégias vitoriosas nos tribunais.",
@@ -76,6 +81,20 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
         "Rescisão Indireta Estratégica"
       ],
       attorneys: "Corpo Jurídico Sênior Duarte Advocatus"
+    },
+    [Specialty.IMOBILIARIO]: {
+      title: "Direito Imobiliário e Patrimonial",
+      image: "/images/specialties/real_estate.png",
+      icon: Building,
+      brief: "Segurança jurídica em contratos, compra, venda e regularização de imóveis.",
+      fullDescription: "Garantimos a proteção do seu patrimônio imobiliário através de uma assessoria consultiva e contenciosa especializada. Atuamos fortemente em litígios complexos com construtoras, regularizações documentais e blindagem de transações imobiliárias para garantir que seus investimentos estejam 100% seguros.",
+      highlights: [
+        "Revisão de Contratos Imobiliários",
+        "Compra, Venda e Locação Seguras",
+        "Ações de Usucapião e Despejo",
+        "Distrato e Atraso na Entrega (Construtoras)"
+      ],
+      attorneys: "Dr. Carlos Duarte e equipe especializada"
     }
   };
 
@@ -103,9 +122,8 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
         </motion.div>
 
         {/* Grid Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {Object.entries(specialtiesDetails).map(([key, value], index) => {
-            const Icon = value.icon;
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {Object.entries(specialtiesDetails).map(([key, value]: [string, any], index) => {
             return (
               <motion.div
                 key={key}
@@ -113,27 +131,37 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white p-10 rounded-xl shadow-md border-t-4 border-gold hover:shadow-2xl transition-all duration-500 group flex flex-col justify-between"
+                className="bg-white rounded-xl shadow-md border-b-4 border-gold hover:shadow-2xl transition-all duration-500 group flex flex-col overflow-hidden"
               >
-                <div>
-                  <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-gold-light transition-all duration-500 mb-8">
-                    <Icon className="w-8 h-8 text-gold" />
-                  </div>
-                  <h3 className="font-serif text-2xl text-primary font-semibold mb-4 group-hover:text-gold transition-colors">
-                    {value.title}
-                  </h3>
-                  <p className="font-sans text-text-muted leading-relaxed mb-8">
-                    {value.brief}
-                  </p>
+                {/* Image Header */}
+                <div className="relative h-48 w-full overflow-hidden">
+                  <div className="absolute inset-0 bg-primary/40 z-10 group-hover:bg-primary/20 transition-colors duration-500"></div>
+                  <img 
+                    src={value.image} 
+                    alt={value.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
                 </div>
 
-                <button
-                  onClick={() => setSelectedSpecialty(key as Specialty)}
-                  className="text-gold font-sans tracking-widest uppercase text-xs font-bold inline-flex items-center gap-2 hover:gap-4 transition-all duration-300 cursor-pointer"
-                >
-                  Conhecer em Detalhes 
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                {/* Content */}
+                <div className="p-8 flex flex-col flex-grow justify-between">
+                  <div>
+                    <h3 className="font-serif text-2xl text-primary font-semibold mb-4 group-hover:text-gold transition-colors">
+                      {value.title}
+                    </h3>
+                    <p className="font-sans text-text-muted leading-relaxed mb-8">
+                      {value.brief}
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={() => setSelectedSpecialty(key as Specialty)}
+                    className="text-gold font-sans tracking-widest uppercase text-xs font-bold inline-flex items-center gap-2 hover:gap-4 transition-all duration-300 cursor-pointer mt-auto"
+                  >
+                    Conhecer em Detalhes 
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
               </motion.div>
             );
           })}
@@ -207,7 +235,7 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
                     className="flex-1 bg-primary text-white font-sans tracking-widest uppercase text-xs font-bold py-4 rounded-lg hover:bg-primary-light transition-all flex items-center justify-center gap-3"
                   >
                     <Calendar className="w-4 h-4 text-gold-light" />
-                    Consultar Especialista
+                    Falar com Especialista
                   </button>
                   <button
                     onClick={() => setSelectedSpecialty(null)}

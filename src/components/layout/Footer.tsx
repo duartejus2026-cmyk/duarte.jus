@@ -13,13 +13,20 @@ export default function Footer() {
           
           {/* Logo & Desc */}
           <div className="space-y-6 col-span-1 lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-gold border border-gold/20">
-                <Scale className="w-5 h-5 text-gold-light" />
+            <div className="flex items-center gap-3 py-2">
+              <img 
+                src="/logo.png" 
+                alt="Duarte Advocatus Logo" 
+                className="w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-md opacity-90 hover:opacity-100 transition-opacity"
+              />
+              <div className="flex flex-col justify-center">
+                <span className="font-serif font-bold text-xl sm:text-2xl tracking-tight text-white block leading-none mb-1">
+                  Duarte Advocatus
+                </span>
+                <span className="text-[8px] sm:text-[9px] tracking-[0.15em] sm:tracking-[0.2em] font-sans uppercase font-bold text-gold-light leading-none block">
+                  Excelência e Estratégia Jurídica
+                </span>
               </div>
-              <span className="font-serif font-bold text-2xl tracking-tight text-white">
-                Duarte<span className="text-gold-light">Advocatus</span>
-              </span>
             </div>
             <p className="font-sans text-sm text-white/50 leading-relaxed">
               Advocacia de alta performance focada em resultados extraordinários e na defesa intransigente dos direitos dos nossos clientes.
