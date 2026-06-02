@@ -99,8 +99,8 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
   };
 
   return (
-    <section id="specialties-section" className="py-24 bg-surface-bright">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="specialties-section" className="py-20 lg:py-24 bg-surface-bright">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Title Block */}
         <motion.div 
@@ -112,11 +112,11 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
           <span className="text-[11px] tracking-widest font-sans uppercase font-bold text-gold">
             Nossa Expertise Técnica
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl text-primary font-medium mt-2 mb-6">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-primary font-medium mt-2 mb-5">
             Áreas de Atuação Especializada
           </h2>
-          <div className="w-20 h-1.5 bg-gold rounded-full mb-6"></div>
-          <p className="font-sans text-lg text-text-muted leading-relaxed">
+          <div className="w-16 h-1.5 bg-gold rounded-full mb-6"></div>
+          <p className="font-sans text-base lg:text-lg text-text-muted leading-relaxed max-w-2xl">
             Unimos tradição e inovação para oferecer soluções jurídicas que atendem aos mais altos padrões de excelência.
           </p>
         </motion.div>
@@ -134,7 +134,7 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
                 className="bg-white rounded-xl shadow-md border-b-4 border-gold hover:shadow-2xl transition-all duration-500 group flex flex-col overflow-hidden"
               >
                 {/* Image Header */}
-                <div className="relative h-48 w-full overflow-hidden">
+                <div className="relative h-40 w-full overflow-hidden">
                   <div className="absolute inset-0 bg-primary/40 z-10 group-hover:bg-primary/20 transition-colors duration-500"></div>
                   <img 
                     src={value.image} 
@@ -144,12 +144,12 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 flex flex-col flex-grow justify-between">
+                <div className="p-6 lg:p-8 flex flex-col flex-grow justify-between">
                   <div>
-                    <h3 className="font-serif text-2xl text-primary font-semibold mb-4 group-hover:text-gold transition-colors">
+                    <h3 className="font-serif text-xl lg:text-2xl text-primary font-semibold mb-3 lg:mb-4 group-hover:text-gold transition-colors leading-tight">
                       {value.title}
                     </h3>
-                    <p className="font-sans text-text-muted leading-relaxed mb-8">
+                    <p className="font-sans text-sm lg:text-base text-text-muted leading-relaxed mb-6 lg:mb-8">
                       {value.brief}
                     </p>
                   </div>

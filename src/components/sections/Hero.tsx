@@ -60,8 +60,8 @@ export default function Hero({ onOpenBooking, onExploreAreas }: HeroProps) {
       </motion.div>
 
       {/* Hero Content Container */}
-      <div className="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-16 text-left">
-        <div className="max-w-3xl space-y-8">
+      <div className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-16 text-left">
+        <div className="max-w-2xl space-y-6">
           
           {/* Badge */}
           <motion.div 
@@ -79,7 +79,7 @@ export default function Hero({ onOpenBooking, onExploreAreas }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="font-serif text-3xl sm:text-6xl lg:text-7xl text-white font-semibold leading-[1.1] tracking-tight"
+            className="font-serif text-4xl sm:text-5xl lg:text-6xl text-white font-semibold leading-[1.15] tracking-tight"
           >
             {content.title}
           </motion.h1>
@@ -103,14 +103,14 @@ export default function Hero({ onOpenBooking, onExploreAreas }: HeroProps) {
           >
             <button
               onClick={onOpenBooking}
-              className="bg-gold hover:bg-gold-light text-primary-dark font-bold px-8 py-4 rounded-sm font-sans tracking-wider uppercase text-xs hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer shadow-lg shadow-gold/20"
+              className="bg-gold hover:bg-gold-light text-primary-dark font-bold px-6 py-3.5 rounded-sm font-sans tracking-wider uppercase text-[11px] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer shadow-lg shadow-gold/20"
             >
               Agende uma Consultoria
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
               onClick={onExploreAreas}
-              className="border border-white/40 text-white hover:border-white hover:bg-white/10 px-8 py-4 rounded-sm font-sans tracking-wider uppercase text-xs font-semibold active:scale-95 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
+              className="border border-white/40 text-white hover:border-white hover:bg-white/10 px-6 py-3.5 rounded-sm font-sans tracking-wider uppercase text-[11px] font-semibold active:scale-95 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
             >
               Áreas de Atuação
             </button>

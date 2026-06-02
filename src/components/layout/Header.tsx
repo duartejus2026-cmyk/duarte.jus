@@ -34,7 +34,7 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking }: Heade
 
   return (
     <header className="sticky top-0 w-full z-50 border-b bg-white/95 backdrop-blur-md border-slate-100 shadow-sm transition-all duration-300">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+      <div className="max-w-6xl mx-auto flex justify-between items-center px-4 sm:px-6 py-2 sm:py-3">
         
         {/* Brand Name */}
         <motion.div 
@@ -47,20 +47,20 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking }: Heade
           <img 
             src="/logo.png" 
             alt="Duarte Advocatus Logo" 
-            className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
+            className="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
           />
           <div className="flex flex-col justify-center">
-            <span className="font-serif font-bold text-xl sm:text-2xl md:text-3xl tracking-tight text-primary block leading-none mb-1">
+            <span className="font-serif font-bold text-lg sm:text-xl md:text-2xl tracking-tight text-primary block leading-none mb-1">
               Duarte Advocatus
             </span>
-            <span className="text-[9px] sm:text-[10px] md:text-[11px] tracking-[0.15em] sm:tracking-[0.2em] font-sans uppercase font-bold text-[#b48d3d] leading-none block">
+            <span className="text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.15em] sm:tracking-[0.2em] font-sans uppercase font-bold text-[#b48d3d] leading-none block">
               Excelência e Estratégia Jurídica
             </span>
           </div>
         </motion.div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
             return (
@@ -93,7 +93,7 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking }: Heade
           <button
             id="header-consult-btn"
             onClick={onOpenBooking}
-            className="bg-primary text-white hover:bg-primary-light border border-gold/20 hover:border-gold/50 px-4 xl:px-6 py-2 sm:py-2.5 rounded-sm font-sans tracking-wider uppercase text-[10px] font-semibold active:scale-95 transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-sm"
+            className="bg-primary text-white hover:bg-primary-light border border-gold/20 hover:border-gold/50 px-4 xl:px-5 py-2 sm:py-2 rounded-sm font-sans tracking-wider uppercase text-[9px] md:text-[10px] font-semibold active:scale-95 transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-sm"
           >
             <PhoneCall className="w-3 h-3 text-gold-light" />
             Agendar Consulta
