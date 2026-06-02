@@ -1,5 +1,5 @@
 /**
- * Types and interfaces for Duarte Advocatus Portal Jurídico
+ * Types and interfaces for Duarte Advogados Portal Jurídico
  */
 
 export enum Specialty {

@@ -16,12 +16,12 @@ export default function Footer() {
             <div className="flex items-center gap-3 py-2">
               <img 
                 src="/logo.png" 
-                alt="Duarte Advocatus Logo" 
+                alt="Duarte Advogados Logo" 
                 className="w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-md opacity-90 hover:opacity-100 transition-opacity"
               />
               <div className="flex flex-col justify-center">
                 <span className="font-serif font-bold text-xl sm:text-2xl tracking-tight text-white block leading-none mb-1">
-                  Duarte Advocatus
+                  Duarte Advogados
                 </span>
                 <span className="text-[8px] sm:text-[9px] tracking-[0.15em] sm:tracking-[0.2em] font-sans uppercase font-bold text-gold-light leading-none block">
                   Excelência e Estratégia Jurídica
@@ -71,7 +71,7 @@ export default function Footer() {
 
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[10px] uppercase tracking-widest text-white/30 font-medium text-center md:text-left flex items-center gap-4">
-            <span>© 2026 Duarte Advocatus.</span>
+            <span>© 2026 Duarte Advogados.</span>
             <a href="/login" className="hover:text-gold transition-colors opacity-50 hover:opacity-100">Acesso Restrito</a>
           </p>
           <button 

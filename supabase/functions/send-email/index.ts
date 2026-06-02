@@ -25,11 +25,11 @@ serve(async (req) => {
 
     // Temporário: onboarding@resend.dev para testes. Trocar para israelduarte.adv@outlook.com depois
     const TO_EMAIL = 'onboarding@resend.dev'; 
-    const FROM_EMAIL = 'Duarte Advocatus <onboarding@resend.dev>'; // Mudar após verificação do domínio
+    const FROM_EMAIL = 'Duarte Advogados <onboarding@resend.dev>'; // Mudar após verificação do domínio
 
     const htmlBody = `
       <div style="font-family: Arial, sans-serif; max-w-2xl mx-auto p-6 bg-white border border-gray-200 rounded-lg">
-        <h2 style="color: #0b1c3c; border-bottom: 2px solid #b48d3d; padding-bottom: 10px;">Novo Lead Recebido - Duarte Advocatus</h2>
+        <h2 style="color: #0b1c3c; border-bottom: 2px solid #b48d3d; padding-bottom: 10px;">Novo Lead Recebido - Duarte Advogados</h2>
         
         <p><strong>Nome:</strong> ${record.name || 'Não informado'}</p>
         <p><strong>E-mail:</strong> ${record.email}</p>
@@ -42,7 +42,7 @@ serve(async (req) => {
         </div>
         
         <p style="font-size: 12px; color: #64748b; margin-top: 30px;">
-          Este e-mail foi gerado automaticamente pelo portal Duarte Advocatus.<br>
+          Este e-mail foi gerado automaticamente pelo portal Duarte Advogados.<br>
           Enviado em: ${new Date().toLocaleString('pt-BR')}
         </p>
       </div>

@@ -41,7 +41,7 @@ export default function WhyChooseUs() {
             className="space-y-8"
           >
             <span className="text-[11px] tracking-widest font-sans uppercase font-bold text-gold-light">
-              Por que a Duarte Advocatus?
+              Por que a Duarte Advogados?
             </span>
             <h2 className="font-serif text-4xl sm:text-5xl font-medium leading-tight">
               Excelência Jurídica <br /> 

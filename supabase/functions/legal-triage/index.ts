@@ -71,7 +71,7 @@ serve(async (req) => {
       body: JSON.stringify({
         contents: [{
           parts: [{
-            text: `Você é um Analista Jurídico Sênior da Duarte Advocatus. Nossas especialidades principais são: Direito Médico, Trabalhista, Bancário e Imobiliário. Analise o relato do cliente e classifique o caso, retornando ESTRITAMENTE um JSON válido no formato abaixo. Não adicione markdown fora do JSON.
+            text: `Você é um Analista Jurídico Sênior da Duarte Advogados. Nossas especialidades principais são: Direito Médico, Trabalhista, Bancário e Imobiliário. Analise o relato do cliente e classifique o caso, retornando ESTRITAMENTE um JSON válido no formato abaixo. Não adicione markdown fora do JSON.
             {
               "specialtyRecommended": "Nome da Área (ex: Direito Imobiliário)",
               "confidence": 0.95,

@@ -34,7 +34,7 @@ export default function Login() {
         <div className="bg-primary p-8 text-center border-b border-white/10">
           <div className="inline-flex items-center gap-2 text-gold-light mb-4">
             <ShieldCheck className="w-8 h-8" />
-            <span className="font-serif text-2xl font-bold tracking-tight">Duarte Advocatus</span>
+            <span className="font-serif text-2xl font-bold tracking-tight">Duarte Advogados</span>
           </div>
           <h2 className="text-white font-sans text-sm uppercase tracking-[0.2em] font-bold opacity-80">Portal Administrativo</h2>
         </div>
@@ -49,7 +49,7 @@ export default function Login() {
           <Input 
             label="E-mail" 
             type="email" 
-            placeholder="admin@duarteadvocatus.com.br"
+            placeholder="admin@duarteadvogados.com.br"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -77,7 +77,7 @@ export default function Login() {
           </div>
 
           <p className="text-[10px] text-text-muted text-center uppercase tracking-widest font-medium">
-            Acesso Restrito à Equipe Duarte Advocatus
+            Acesso Restrito à Equipe Duarte Advogados
           </p>
         </form>
       </div>

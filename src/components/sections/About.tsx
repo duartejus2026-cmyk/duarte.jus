@@ -70,7 +70,7 @@ export default function About() {
               />
               {/* Overlay Badge */}
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-4 rounded-xl text-center w-[85%] shadow-xl">
-                <p className="text-white font-serif text-xl mb-2 tracking-wide">Duarte Advocatus</p>
+                <p className="text-white font-serif text-xl mb-2 tracking-wide">Duarte Advogados</p>
                 <div className="w-10 h-0.5 bg-gold mx-auto" />
               </div>
             </div>

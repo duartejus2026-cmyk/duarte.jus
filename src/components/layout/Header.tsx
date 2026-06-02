@@ -46,12 +46,12 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking }: Heade
         >
           <img 
             src="/logo.png" 
-            alt="Duarte Advocatus Logo" 
+            alt="Duarte Advogados Logo" 
             className="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
           />
           <div className="flex flex-col justify-center">
             <span className="font-serif font-bold text-lg sm:text-xl md:text-2xl tracking-tight text-primary block leading-none mb-1">
-              Duarte Advocatus
+              Duarte Advogados
             </span>
             <span className="text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.15em] sm:tracking-[0.2em] font-sans uppercase font-bold text-[#b48d3d] leading-none block">
               Excelência e Estratégia Jurídica
